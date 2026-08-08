@@ -1,4 +1,7 @@
+
 (() => {
+  const config = window.URBAN_SAHARA_FORM || {};
+
   const menuButton = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".main-nav");
 
@@ -52,9 +55,7 @@
     year.textContent = new Date().getFullYear();
   }
 
-  // Lead form submission
-  // Posts to our own /api/submit endpoint (same-origin, so ad blockers
-  // can't intercept it), which forwards to Google Forms server-side.
+  // Google Forms submission
   const form = document.getElementById("lead-form");
   const status = document.getElementById("form-status");
 
@@ -66,60 +67,82 @@
   }
 
   if (form) {
-    form.addEventListener("submit", async (event) => {
+    form.addEventListener("submit", (event) => {
       event.preventDefault();
 
       setStatus("");
 
       if (!form.checkValidity()) {
         form.reportValidity();
-        setStatus("Please complete the required fields.", "error");
+        setStatus(
+          "Please complete the required fields.",
+          "error"
+        );
         return;
       }
 
-      const submitButton = form.querySelector('button[type="submit"]');
-      const originalButtonText = submitButton ? submitButton.innerHTML : "";
+      const action = config.FORM_ACTION || "";
+      const entries = config.entries || {};
 
-      if (submitButton) {
-        submitButton.disabled = true;
-        submitButton.textContent = "Sending...";
-      }
+      const isConfigured =
+        action.startsWith("https://docs.google.com/forms/") &&
+        Object.values(entries).every(
+          (value) =>
+            value &&
+            !String(value).includes("REPLACE")
+        );
 
-      const data = new FormData(form);
-      const payload = Object.fromEntries(data.entries());
-
-      try {
-        const response = await fetch("/api/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-
-        const result = await response.json().catch(() => ({ ok: false }));
-
-        if (response.ok && result.ok) {
-          form.reset();
-          setStatus(
-            "Thank you. Your enquiry has been received. We'll contact you shortly.",
-            "success"
-          );
-        } else {
-          setStatus(
-            "Something went wrong sending your enquiry. Please try again, or WhatsApp/call us directly.",
-            "error"
-          );
-        }
-      } catch (err) {
+      if (!isConfigured) {
         setStatus(
-          "We couldn't reach our server. Please check your connection and try again, or WhatsApp/call us directly.",
+          "The form is ready, but Google Forms still needs to be connected in js/config.js.",
           "error"
         );
-      } finally {
-        if (submitButton) {
-          submitButton.disabled = false;
-          submitButton.innerHTML = originalButtonText;
-        }
+        return;
       }
+
+      const frame = document.getElementById(
+        "google-form-frame"
+      );
+
+      if (!frame) {
+        setStatus(
+          "The form could not be submitted. Please try again.",
+          "error"
+        );
+        return;
+      }
+
+      const submitForm = document.createElement("form");
+
+      submitForm.action = action;
+      submitForm.method = "POST";
+      submitForm.target = frame.name;
+      submitForm.style.display = "none";
+
+      const data = new FormData(form);
+
+      Object.keys(entries).forEach((key) => {
+        const input = document.createElement("input");
+
+        input.type = "hidden";
+        input.name = entries[key];
+        input.value = data.get(key) || "";
+
+        submitForm.appendChild(input);
+      });
+
+      document.body.appendChild(submitForm);
+
+      submitForm.submit();
+
+      submitForm.remove();
+
+      form.reset();
+
+      setStatus(
+        "Thank you. Your enquiry has been received. We'll contact you shortly.",
+        "success"
+      );
     });
   }
 })();
