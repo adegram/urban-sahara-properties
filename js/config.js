@@ -27,7 +27,7 @@
 */
 
 window.URBAN_SAHARA_FORM = {
-  FORM_ACTION: "https://docs.google.com/forms/d/e/1FAIpQLScW1Fqa-DVuwWEW8_szGsKeNJQ0SD68BxIPvucm21-s7XgDyQ/viewform?usp=header",
+  FORM_ACTION: "https://docs.google.com/forms/d/e/1FAIpQLScW1Fqa-DVuwWEW8_szGsKeNJQ0SD68BxIPvucm21-s7XgDyQ/formResponse",
   entries: {
     fullName: "entry.2005620554",
     phone: "entry.1707281270",
