@@ -68,81 +68,71 @@
 
   if (form) {
     form.addEventListener("submit", (event) => {
-      event.preventDefault();
+    event.preventDefault();
 
-      setStatus("");
+    const config = window.URBAN_SAHARA_FORM;
 
-      if (!form.checkValidity()) {
-        form.reportValidity();
+    if (!config || !config.FORM_ACTION) {
         setStatus(
-          "Please complete the required fields.",
-          "error"
+            "The enquiry form is not configured yet. Please contact us directly.",
+            "error"
         );
+        console.error("Google Forms configuration is missing.");
         return;
-      }
+    }
 
-      const action = config.FORM_ACTION || "";
-      const entries = config.entries || {};
+    const formData = new FormData(form);
 
-      const isConfigured =
-        action.startsWith("https://docs.google.com/forms/") &&
-        Object.values(entries).every(
-          (value) =>
-            value &&
-            !String(value).includes("REPLACE")
-        );
+    const googleForm = document.createElement("form");
 
-      if (!isConfigured) {
-        setStatus(
-          "The form is ready, but Google Forms still needs to be connected in js/config.js.",
-          "error"
-        );
-        return;
-      }
+    googleForm.action = config.FORM_ACTION;
+    googleForm.method = "POST";
+    googleForm.target = "google-form-frame";
+    googleForm.style.display = "none";
 
-      const frame = document.getElementById(
-        "google-form-frame"
-      );
+    const fields = {
+        fullName: formData.get("fullName"),
+        phone: formData.get("phone"),
+        email: formData.get("email"),
+        interest: formData.get("interest"),
+        location: formData.get("location"),
+        budget: formData.get("budget"),
+        contactMethod: formData.get("contactMethod"),
+        message: formData.get("message")
+    };
 
-      if (!frame) {
-        setStatus(
-          "The form could not be submitted. Please try again.",
-          "error"
-        );
-        return;
-      }
+    Object.entries(fields).forEach(([key, value]) => {
+        const entryId = config.entries[key];
 
-      const submitForm = document.createElement("form");
+        if (!entryId) {
+            console.error(`Missing Google Form entry ID for: ${key}`);
+            return;
+        }
 
-      submitForm.action = action;
-      submitForm.method = "POST";
-      submitForm.target = frame.name;
-      submitForm.style.display = "none";
-
-      const data = new FormData(form);
-
-      Object.keys(entries).forEach((key) => {
         const input = document.createElement("input");
 
         input.type = "hidden";
-        input.name = entries[key];
-        input.value = data.get(key) || "";
+        input.name = entryId;
+        input.value = value || "";
 
-        submitForm.appendChild(input);
-      });
+        googleForm.appendChild(input);
+    });
 
-      document.body.appendChild(submitForm);
+    document.body.appendChild(googleForm);
 
-      submitForm.submit();
+    console.log("Submitting to Google Forms:", config.FORM_ACTION);
+    console.log("Submitted fields:", fields);
 
-      submitForm.remove();
+    googleForm.submit();
 
-      form.reset();
-
-      setStatus(
+    setStatus(
         "Thank you. Your enquiry has been received. We'll contact you shortly.",
         "success"
-      );
-    });
-  }
-})();
+    );
+
+    form.reset();
+
+    setTimeout(() => {
+        googleForm.remove();
+    }, 2000);
+});
