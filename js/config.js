@@ -27,15 +27,15 @@
 */
 
 window.URBAN_SAHARA_FORM = {
-  FORM_ACTION: "PASTE_YOUR_GOOGLE_FORM_FORMRESPONSE_URL_HERE",
+  FORM_ACTION: "https://docs.google.com/forms/d/e/1FAIpQLScW1Fqa-DVuwWEW8_szGsKeNJQ0SD68BxIPvucm21-s7XgDyQ/viewform?usp=header",
   entries: {
-    fullName: "entry.REPLACE_FULL_NAME",
-    phone: "entry.REPLACE_PHONE",
-    email: "entry.REPLACE_EMAIL",
-    interest: "entry.REPLACE_INTEREST",
-    location: "entry.REPLACE_LOCATION",
-    budget: "entry.REPLACE_BUDGET",
-    contactMethod: "entry.REPLACE_CONTACT_METHOD",
-    message: "entry.REPLACE_MESSAGE"
+    fullName: "entry.2005620554",
+    phone: "entry.1707281270",
+    email: "entry.1673362961",
+    interest: "entry.1407542954",
+    location: "entry.1125694873",
+    budget: "entry.1190063791",
+    contactMethod: "entry.110569613",
+    message: "entry.660872446"
   }
 };
