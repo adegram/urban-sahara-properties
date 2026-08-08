@@ -32,10 +32,10 @@ window.URBAN_SAHARA_FORM = {
     fullName: "entry.2005620554",
     phone: "entry.1707281270",
     email: "entry.1673362961",
-    interest: "entry.1407542954",
-    location: "entry.1125694873",
-    budget: "entry.1190063791",
-    contactMethod: "entry.110569613",
-    message: "entry.660872446"
+    interest: "entry.110569613",
+    location: "entry.1407542954",
+    budget: "entry.1125694873",
+    contactMethod: "entry.660872446",
+    message: "entry.1190063791"
   }
 };
