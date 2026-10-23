@@ -10,7 +10,7 @@
   if (nav) {
     nav.querySelectorAll("a").forEach((link) => {
       const destination = (link.getAttribute("href") || "").split("#")[0].toLowerCase();
-      if (destination && destination === currentPage) {
+      if (!link.classList.contains("nav-cta") && destination && destination === currentPage) {
         link.classList.add("active");
         link.setAttribute("aria-current", "page");
       }
