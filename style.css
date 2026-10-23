@@ -330,3 +330,23 @@ input:focus, select:focus, textarea:focus { border-color: var(--navy); box-shado
   .contact-side-note { padding: 25px; }
   .footer-brand img { width: 175px; }
 }
+
+
+/* Home hero image: show only the PROPERTY • INVESTMENT label at bottom-left. */
+.visual-content-label {
+  left: 36px;
+  right: auto;
+  bottom: 28px;
+  width: auto;
+  color: #fff;
+}
+.visual-content-label .pill {
+  margin: 0;
+  color: #fff;
+}
+@media (max-width: 760px) {
+  .visual-content-label {
+    left: 24px;
+    bottom: 22px;
+  }
+}
