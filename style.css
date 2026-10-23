@@ -409,3 +409,75 @@ input:focus, select:focus, textarea:focus { border-color: var(--navy); box-shado
 @media (max-width: 600px) {
   .process-grid-three { grid-template-columns: 1fr; }
 }
+
+
+/* Definitive mobile menu fix: prevent the sticky header's blur from
+   constraining the fixed menu to the header instead of the viewport. */
+@media (max-width: 760px) {
+  .site-header {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    overflow: visible;
+  }
+
+  .site-header .nav-wrap {
+    position: static;
+  }
+
+  .site-header .menu-toggle {
+    z-index: 10002;
+  }
+
+  .site-header .main-nav {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    overflow-y: auto;
+    padding: max(104px, calc(env(safe-area-inset-top) + 88px)) 28px max(32px, env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 6px;
+    background: #fff !important;
+    background-color: #fff !important;
+    opacity: 1 !important;
+    transform: translate3d(100%, 0, 0);
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 10001;
+    box-shadow: none;
+    isolation: isolate;
+  }
+
+  .site-header .main-nav.open {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+    pointer-events: auto;
+    background: #fff !important;
+    background-color: #fff !important;
+    box-shadow: 0 0 0 100vmax #fff;
+  }
+
+  .site-header .main-nav a {
+    display: block;
+    flex: 0 0 auto;
+    color: #111a25 !important;
+    background: transparent;
+    padding: 16px 0;
+    border-bottom: 1px solid #e4e8ee;
+  }
+
+  .site-header .main-nav a.nav-cta {
+    display: block;
+    color: #fff !important;
+    background: #214373;
+    border: 0;
+    text-align: center;
+    padding: 15px 20px;
+    margin-top: 16px;
+  }
+}
