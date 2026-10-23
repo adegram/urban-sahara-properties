@@ -539,3 +539,35 @@ input:focus, select:focus, textarea:focus { border-color: var(--navy); box-shado
     font-size: clamp(1.9rem, 8vw, 2.4rem);
   }
 }
+
+
+/* Refined footer branding: smaller logo, blended into the navy footer. */
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+}
+.footer-brand img {
+  display: block;
+  width: 112px;
+  height: 70px;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
+  mix-blend-mode: screen;
+  background: transparent;
+}
+@media (max-width: 760px) {
+  .footer-brand img {
+    width: 100px;
+    height: 62px;
+  }
+}
+
+/* Keep diagonal-arrow glyphs in the text style rather than emoji presentation. */
+.btn span,
+.service-card a span,
+.contact-option-action b {
+  font-variant-emoji: text;
+}
