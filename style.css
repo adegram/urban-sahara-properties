@@ -571,3 +571,23 @@ input:focus, select:focus, textarea:focus { border-color: var(--navy); box-shado
 .contact-option-action b {
   font-variant-emoji: text;
 }
+
+
+/* Restore the original black footer-logo tile; keep it compact without
+   blending away its background or shrinking the mark inside a fixed box. */
+.footer-brand img {
+  display: block;
+  width: 145px;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
+  mix-blend-mode: normal;
+  background: #000;
+}
+@media (max-width: 760px) {
+  .footer-brand img {
+    width: 125px;
+    height: auto;
+  }
+}
