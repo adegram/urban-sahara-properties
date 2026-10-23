@@ -5,6 +5,18 @@
   const menuButton = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".main-nav");
 
+  // Mark the current standalone page in the navigation.
+  const currentPage = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+  if (nav) {
+    nav.querySelectorAll("a").forEach((link) => {
+      const destination = (link.getAttribute("href") || "").split("#")[0].toLowerCase();
+      if (destination && destination === currentPage) {
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
+      }
+    });
+  }
+
   // Mobile navigation
   if (menuButton && nav) {
     menuButton.addEventListener("click", () => {
