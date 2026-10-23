@@ -481,3 +481,61 @@ input:focus, select:focus, textarea:focus { border-color: var(--navy); box-shado
     margin-top: 16px;
   }
 }
+
+
+/* Mobile-first typography: the site is primarily visited on phones. */
+@media (max-width: 760px) {
+  .hero h1 {
+    font-size: clamp(2.35rem, 10.5vw, 3.5rem);
+    line-height: 1.02;
+    letter-spacing: -.055em;
+    max-width: 100%;
+    overflow-wrap: normal;
+  }
+
+  .page-hero {
+    padding: 48px 0 42px;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.25rem, 9.5vw, 3.35rem);
+    line-height: 1.04;
+    letter-spacing: -.055em;
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .display-heading {
+    font-size: clamp(2rem, 8.5vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -.05em;
+  }
+
+  .section-heading h2,
+  .why-copy h2 {
+    font-size: clamp(2rem, 8.5vw, 3rem);
+    line-height: 1.08;
+  }
+
+  .hero-text,
+  .page-lead {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero h1 {
+    font-size: clamp(2.15rem, 10vw, 2.65rem);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.05rem, 9.2vw, 2.5rem);
+  }
+
+  .display-heading,
+  .section-heading h2,
+  .why-copy h2 {
+    font-size: clamp(1.9rem, 8vw, 2.4rem);
+  }
+}
