@@ -25,11 +25,7 @@ urban-sahara-properties/
 ├── js/
 │   ├── config.js
 │   └── main.js
-├── img/
-│   ├── logo-primary.png
-│   ├── logo-white.png
-│   └── favicon assets
-└── docs/
+
 
 ## Brand
 
