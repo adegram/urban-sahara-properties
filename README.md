@@ -30,8 +30,6 @@ urban-sahara-properties/
 │   ├── logo-white.png
 │   └── favicon assets
 └── docs/
-    └── GOOGLE-FORMS-SETUP.md
-```
 
 ## Brand
 
