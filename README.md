@@ -22,9 +22,7 @@ urban-sahara-properties/
 ├── how-it-works.html
 ├── contact.html
 ├── style.css
-├── js/
-│   ├── config.js
-│   └── main.js
+
 
 
 ## Brand
