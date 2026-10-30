@@ -36,7 +36,7 @@ The shared JavaScript in `js/main.js` provides the mobile navigation menu, scrol
 Run a local web server from the repository root:
 
 ```bash
-python3 -m http.server 5500
+
 ```
 
 
