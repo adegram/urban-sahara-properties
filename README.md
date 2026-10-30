@@ -11,16 +11,6 @@ Responsive multi-page company website for Urban Sahara Properties & Investments 
 - `how-it-works.html` — Property journey and process
 - `contact.html` — Contact information and discovery-call form
 
-## Project structure
-
-```text
-urban-sahara-properties/
-
-
-
-
-
-
 ## Brand
 
 - Primary navy: `#214373`
