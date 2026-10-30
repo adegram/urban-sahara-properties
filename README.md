@@ -31,14 +31,6 @@ See `docs/GOOGLE-FORMS-SETUP.md` for setup notes.
 
 The shared JavaScript in `js/main.js` provides the mobile navigation menu, scroll reveals, active-page navigation state, footer year, and discovery form submission handling.
 
-## Local testing
-
-Run a local web server from the repository root:
-
-```bash
-
-```
-
 
 
 ## Deployment
