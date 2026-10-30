@@ -39,7 +39,7 @@ Run a local web server from the repository root:
 python3 -m http.server 5500
 ```
 
-Open `http://localhost:5500`.
+
 
 ## Deployment
 
