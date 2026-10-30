@@ -16,8 +16,7 @@ Responsive multi-page company website for Urban Sahara Properties & Investments 
 ```text
 urban-sahara-properties/
 ├── index.html
-├── about.html
-├── services.html
+
 
 
 
