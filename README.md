@@ -18,8 +18,7 @@ urban-sahara-properties/
 ├── index.html
 ├── about.html
 ├── services.html
-├── why-us.html
-├── how-it-works.html
+
 
 
 
