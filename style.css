@@ -285,7 +285,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--navy); box-shado
 }
 
 
-/* Multi-page navigation and dedicated page layouts */
+/* Multi-page navigation and dedicated page layouts for the website*/
 .main-nav a.active:not(.nav-cta) { color: var(--navy); }
 .main-nav a[aria-current="page"]:not(.nav-cta) { color: var(--navy); }
 .page-hero { padding: 94px 0 84px; background: linear-gradient(135deg, #f8fafc 0%, #eef3f8 100%); border-bottom: 1px solid var(--line); }
