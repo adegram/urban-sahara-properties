@@ -6,8 +6,8 @@ The website uses a normal HTML POST to Google Forms, with the submission sent in
 
 Create a Google Form with these questions:
 
-1. Full Name — Short answer — Required
-2. Phone / WhatsApp — Short answer — Required
+1. Full Name — Short answer — Required!
+2. Phone / WhatsApp — Short answer — Required!
 3. Email address — Short answer
 4. I'm interested in — Dropdown
 5. Preferred location — Short answer
