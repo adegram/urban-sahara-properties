@@ -9,7 +9,7 @@ Responsive multi-page company website for Urban Sahara Properties & Investments 
 - `services.html` — Buy property, land and investments, selling, and property guidance
 - `why-us.html` — Our approach and client benefits
 - `how-it-works.html` — Property journey and process
-- `contact.html` — Contact information and discovery-call form
+- `contact.html` — Contact info and discovery-call form
 
 ## Brand
 
