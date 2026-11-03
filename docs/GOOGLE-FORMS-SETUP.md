@@ -13,7 +13,7 @@ Create a Google Form with these questions:
 5. Preferred location — Short answer
 6. Budget — Short answer
 7. Preferred contact — Dropdown
-8. Tell us a little more — Paragraph
+8. Tell us a little more — A Paragraph
 
 The exact wording does not have to match perfectly, but the order is useful.
 
@@ -47,6 +47,8 @@ FORM_ACTION: "PASTE_YOUR_GOOGLE_FORM_FORMRESPONSE_URL_HERE"
 ```
 
 with your actual formResponse URL.
+
+
 
 Then replace every placeholder entry ID:
 
