@@ -43,7 +43,7 @@ button { cursor: pointer; }
   backdrop-filter: blur(16px); border-bottom: 1px solid rgba(228,232,238,.75);
 }
 
-/*  Whats this doing  */
+/*  Whats doing what */
 .nav-wrap { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
 .brand img { width: 175px; height: auto; }
 .main-nav { display: flex; align-items: center; gap: 27px; font-size: .88rem; font-weight: 600; }
