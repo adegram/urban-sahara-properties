@@ -10,6 +10,7 @@
   --radius: 22px;
   --shadow: 0 20px 60px rgba(17, 31, 50, .10);
   --shadow-soft: 0 12px 30px rgba(17, 31, 50, .07);
+  --
 }
 
 * { box-sizing: border-box; }
